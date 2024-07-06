@@ -28,10 +28,26 @@ console.log("Hold status: " + holdStatus(cargoHold));
  */
  
 //a). Define an anonymous function and set it equal to a variable with a normal, non-suspicious name. The function takes one parameter. This will be the fuel level on the shuttle.
+let fuelStatusUpdate = function(n) {
+  while(true) {
+    if(n > 100000 && n - 1 <= 100000) {
+      return n;
+    } else if (n > 50000 && n - 1 <= 50000) {
+      return n;
+    } else if (n <= 50000) {
+      return n;
+    } else {
+      n = n - 1;
+    }
+  }
+};
+console.log(fuelStatusUpdate(fuelLevel));
+console.log(fuelLevel)
 
 //b). You must siphon off fuel without alerting the TAs. Inside your function, you want to reduce the fuel level as much as possible WITHOUT changing the color returned by the checkFuel function.
 
 //c). Once you figure out how much fuel to pump out, return that value.
+console.log(fuelLevel - (fuelStatusUpdate(fuelLevel)));
 
 //d). Decide where to best place your function call to gather our new fuel.
 
@@ -39,6 +55,16 @@ console.log("Hold status: " + holdStatus(cargoHold));
  */
 
 //a). Define another anonymous function with an array as a parameter, and set it equal to another innocent variable.
+let notNotStealingCargo = function(myArray) {
+  cargoLoot = [];
+      myArray.splice(1,1,'Cheap Suit');
+      myArray.splice(4,1,'notGold');
+      cargoLoot.push('space suit', 'gold');
+  return myArray;
+}
+
+console.log(notNotStealingCargo(cargoHold));
+console.log(cargoLoot);
 
 //b). You need to swipe two items from the cargo hold. Choose well. Stealing water ain’t gonna get us rich. Put the swag into a new array and return it from the function.
 
@@ -48,6 +74,10 @@ console.log("Hold status: " + holdStatus(cargoHold));
 
 /* Finally, you need to print a receipt for the accountant. Don’t laugh! That genius knows MATH and saves us more gold than you can imagine.
  */
+let irs = function(a,b) {
+  return `Raided ${fuelLevel - (fuelStatusUpdate(fuelLevel))}kg of fuel from the tanks, and stole ${cargoLoot[0]} and ${cargoLoot[1]} from the cargo hold.`
+};
+console.log(irs(fuelLevel, cargoLoot));
  
 //a). Define a function called irs that can take fuelLevel and cargoHold as arguments.
 	
